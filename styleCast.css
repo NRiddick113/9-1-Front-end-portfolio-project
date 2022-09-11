@@ -1,6 +1,32 @@
+body{
+    background-color: rgb(0, 209, 185);
+}
+
+header{
+    /* border: 5px  rosybrown; */
+    background-image: url('./undefined\ -\ Imgur.jpg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 800px 350px ;
+    height: 350px;
+}
+h1{
+    color: rgb(30, 126, 244);
+    text-shadow: 10px;
+}
+
 main{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    grid-template-rows: repeat(4,1fr);
+  grid-template-columns: repeat(4, 1fr);
+}
 
+img{
+    border: 5px solid yellowgreen;
+    border-radius: 35%;
+     width: 155px;
+}
+
+p{
+    text-align: center;
+    
 }
