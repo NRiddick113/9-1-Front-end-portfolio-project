@@ -3,12 +3,14 @@ body{
 }
 
 header{
-    /* border: 5px  rosybrown; */
-    background-image: url('./undefined\ -\ Imgur.jpg');
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 800px 350px ;
+    border: 5px solid rgb(0, 209, 185);
     height: 350px;
+    margin-bottom: 5px;
+}
+header img{
+    width: 100%;
+    border: none;
+    border-radius: 360px;
 }
 h1{
     color: rgb(30, 126, 244);
@@ -18,6 +20,7 @@ h1{
 main{
     display: grid;
   grid-template-columns: repeat(4, 1fr);
+  margin-top: 275px;
 }
 
 img{
@@ -30,3 +33,18 @@ p{
     text-align: center;
     
 }
+.imageBox {
+    position: relative;
+    float: left;
+  }
+  
+  .imageBox .hoverImg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    display: none;
+  }
+  
+  .imageBox:hover .hoverImg {
+    display: block;
+  }
