@@ -65,8 +65,8 @@ function quotes(){
                     
                     console.log(data)
                     let correct = 0
-                    const name = data.character.firstname + data.character.lastname
-                    input.forEach((answer) => {
+                    data.forEach((answer) => {
+                        const name = data.character.firstname + data.character.lastname 
                          if (answer === name) {
                              correct += 1
                         }
