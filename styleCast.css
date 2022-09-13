@@ -1,5 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Adamina&family=Alegreya:ital@1&family=Merriweather:ital,wght@1,300&display=swap');
+
+
 body{
     background-color: rgb(0, 209, 185);
+    
 }
 
 header{
@@ -32,6 +36,7 @@ img{
 
 p{
     text-align: center;
+    font-size: 'Alegreya';
     
 }
 .imageBox {
@@ -48,4 +53,19 @@ p{
   
   .imageBox:hover .hoverImg {
     display: block;
+  }
+  @media (max-width: 550px) {
+    body{
+      background-color: rosybrown;
+    }
+    header{
+      border: none;
+    }
+    main{
+      display: block;
+      margin-top: 20px;
+    }
+   p {
+display: none;
+    }
   }

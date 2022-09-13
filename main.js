@@ -4,7 +4,8 @@ const form = document.querySelector('form')
 const ol = document.querySelector('ol')
 const ready = document.querySelector('button')
 const main = document.querySelector('main')
-// console.log(ready)
+const p = document.querySelector('#description')
+const getScore = document.querySelector('#getScore')
 
 const MS = ['5e9664cff87ac15464c55f1b','5e96651df87ac15464c55f1c','5e9665856a66e65486e24491','5e9665956a66e65486e24492','5e96659e6a66e65486e24493','5e9665a76a66e65486e24494','5e9665af6a66e65486e24495','5e9665cd6a66e65486e24496','5e9665d66a66e65486e24497','5e9665e06a66e65486e24498','5e9665f76a66e65486e24499']
 const DS = ['5e9668c76a66e65486e244ab','5e9668d16a66e65486e244ac','5e9668dd6a66e65486e244ad','5e9668f46a66e65486e244ae']
@@ -61,19 +62,57 @@ function quotes(){
         let answer = ''
         
         while (useQues.length < 10) {
-            let randomNum = Math.floor(Math.random() * data.length-1)
+            let randomNum = Math.floor(Math.random() * data.length)
+            // console.log(data[randomNum],randomNum)
             if(!id.includes(data[randomNum]._id)){
                 id.push(data[randomNum]._id)
                 num.push(randomNum)
             }else{
-                let randomNum1 = Math.floor(Math.random() * data.length-1)
-                id.push(data[randomNum1]._id)
-                num.push(randomNum1)
+                let randomNum = Math.floor(Math.random() * data.length)
+                // console.log(data[randomNum1],randomNum1)
+                id.push(data[randomNum]._id)
+                num.push(randomNum)
             }
             useQues.push(data[randomNum]._id)
+            
+            
             if (MS.includes(data[randomNum]._id)) {
-               answer +=  michael
-            }   
+                answer =  michael
+            }  if (DS.includes(data[randomNum]._id)) {
+                answer =  dwight
+            }  if (AB.includes(data[randomNum]._id)) {
+                answer =  andy
+            }  if (PS.includes(data[randomNum]._id)) {
+                answer = pam
+            }  if (JH.includes(data[randomNum]._id)) {
+                answer =  jim
+            }  if (SH.includes(data[randomNum]._id)) {
+                answer =  stanley
+            }  if (KK.includes(data[randomNum]._id)) {
+                answer =  kelly
+            }  if (AM.includes(data[randomNum]._id)) {
+                answer =  angela
+            }  if (KM === data[randomNum]._id) {
+                answer =  kevin
+            }  if (RH === data[randomNum]._id) {
+                answer =  ryan
+            }  if (DP === data[randomNum]._id) {
+                answer =  darryl
+            }  if (EH === data[randomNum]._id) {
+                answer =  erin
+            }  if (GL === data[randomNum]._id) {
+                answer =  gabe
+            }  if (TF === data[randomNum]._id) {
+                answer =  toby
+            }  if (PL === data[randomNum]._id) {
+                answer =  phyllis
+            }  if (OM === data[randomNum]._id) {
+                answer =  oscar
+            }  if (CB === data[randomNum]._id) {
+                answer =  creed
+            }  
+            
+            
         }
         console.log(id,num)
         
@@ -81,6 +120,7 @@ function quotes(){
             const quote = document.createElement('li')
             quote.innerText = `${data[index].content}`
             const input = document.createElement('input')
+            input.setAttribute('id','answer')
             input.setAttribute('type','text')
             input.setAttribute('placeholder','Name of Character')
             ol.append(quote,input)
@@ -93,19 +133,46 @@ function quotes(){
             
             const submit = document.createElement('button')
             submit.innerText = 'Get My Score'
+            submit.setAttribute('id','getScore')
             submit.setAttribute('type','submit')
             main.append(submit)
+            const button = document.querySelector('button')        
+            button.addEventListener('click', (event) => {
+                event.preventDefault
+                const user = document.querySelectorAll('input')
+                
+                console.log(user)
+                
+                let correct = 0
+                user.forEach((userAnswer, i) => {
+                    console.log(answer)
+                    if (userAnswer.value === answer) {
+                        correct += 1
+                        
+                        console.log(correct)
+                    }
+                    if (userAnswer.value === undefined) {
+                        window.confirm('Try your best. you missed a question!')
+                    }
+                })
+
+                    const score = Math.floor((correct/10) * 100)
+                    const scores = document.createElement('p')
+                    scores.setAttribute('id','score')
+                    scores.innerText = `${score}%`
+                    p.append(scores)
+                    form.remove()
+                    getScore.remove()
+
+            }) 
+
             form.reset()
         })
         .catch((err) => {
             console.log(err)
         })
     }
-    const button = document.querySelector('button')        
-    button.addEventListener('click', (event) => {
-        event.preventDefault
-        countAnswer()
-    })
+    
 
 
     // IF ID === (ID){
@@ -113,21 +180,5 @@ function quotes(){
     // }
 
 
-    
-    function countAnswer() {
-        fetch(`${baseUrl}`)
-        .then(res => res.json())
-        .then(res => {
-            const data = res.data
-            
-            // console.log(data)
-            let correct = 0
-            data.forEach((answer) => {
-                const name = data[0].character.firstname + data[0].character.lastname 
-            })
-        })
-                    .catch((err) => {
-                        console.log(err)
-                    })
-                }
+   
 
