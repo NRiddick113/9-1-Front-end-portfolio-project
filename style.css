@@ -18,10 +18,14 @@ input{
 }
 
 button{
+
     background-color: yellowgreen;
     width: 80%;
     height: 70px;
     cursor: pointer;
+}
+#err{
+    display: none;
 }
 
 @media (max-width: 550px) {

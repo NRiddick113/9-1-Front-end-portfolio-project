@@ -4,6 +4,7 @@ const ready = document.querySelector("button");
 const main = document.querySelector("main");
 const p = document.querySelector("#description");
 const getScore = document.querySelector("#getScore");
+const err = document.querySelector('#err')
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -59,17 +60,20 @@ function quotes() {
       submit.setAttribute("id", "getScore");
       submit.setAttribute("type", "submit");
       main.append(submit);
-      const button = document.querySelector("button");
+      const getScore = document.querySelector("button");
+      console.log(getScore)
       const user = document.querySelectorAll("#answer");
 
-      button.addEventListener("click", (event) => {
-        event.preventDefault;
+      getScore.addEventListener("click", (event) => {
+        event.preventDefault();
 
-
+        
         let correct = 0;
         answerKey.forEach((userAnswer, i) => {
-            if (user[i].value === '') {
-                alert('trigger');
+          if (user[i].value === '') {
+              getScore.disabled = true
+                err.style.display = 'block'
+
             }
             console.log(user[i].value)
           if (userAnswer === user[i].value) {
