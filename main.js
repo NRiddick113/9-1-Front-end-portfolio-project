@@ -29,13 +29,11 @@ function quotes() {
       if (!indexNumArr.includes(randomNum)) {
         indexNumArr.push(randomNum);
         answerKey.push(
-          data[randomNum].character.firstname +
-          " " +
-          data[randomNum].character.lastname
+          data[randomNum].character.firstname 
           );
         } 
       }
-      // console.log(indexNumArr, answerKey);
+      console.log(indexNumArr, answerKey);
       
       indexNumArr.forEach((index) => {
         const quote = document.createElement("li");
@@ -57,10 +55,9 @@ function quotes() {
         for (const answer of user.values()) {
          console.log(answer)
           if (answer.value === '') {
-            console.log('help')
-
-          //   err.style.display = 'block'
-          //   getScore.disable = true
+            alert('You missed a question')
+            err.style.display = 'block'
+           return getScore.disable = true
           }
         }
         score()
