@@ -18,7 +18,7 @@ function quotes() {
   .then((res) => res.json())
   .then((res) => {
     const data = res.data;
-    console.log(data);
+    // console.log(data);
     
     let indexNumArr = [];
     let answerKey = [];
@@ -35,7 +35,7 @@ function quotes() {
           );
         } 
       }
-      console.log(indexNumArr, answerKey);
+      // console.log(indexNumArr, answerKey);
       
       indexNumArr.forEach((index) => {
         const quote = document.createElement("li");
@@ -54,17 +54,19 @@ function quotes() {
       getScore.addEventListener("click", (event) => {
         event.preventDefault();
         
-        for
-          console.log(answer.value)
-          if (answer === '') {
-            getScore.disabled = true
-            err.style.display = 'block'
+        for (const answer of user.values()) {
+         console.log(answer)
+          if (answer.value === '') {
+            console.log('help')
+
+          //   err.style.display = 'block'
+          //   getScore.disable = true
           }
-        });
-          console.log(getScore)
+        }
+        score()
+      });
+       
         
-          score()
-        });
         
         function score() {
           let correct = 0;
