@@ -51,16 +51,16 @@ function quotes() {
 
       const user = document.querySelectorAll("input");
       
-      user.forEach(answer => {
-        console.log(answer.value)
-        if (answer === '') {
-          getScore.disabled = true
-          err.style.display = 'block'
-        }
-      });
       getScore.addEventListener("click", (event) => {
         event.preventDefault();
         
+        for
+          console.log(answer.value)
+          if (answer === '') {
+            getScore.disabled = true
+            err.style.display = 'block'
+          }
+        });
           console.log(getScore)
         
           score()
