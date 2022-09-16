@@ -21,3 +21,6 @@
 - https://api.tvmaze.com/shows/526/cast
 
 ## Enjoy!
+
+#### Deployed Page
+- https://nriddick113.github.io/9-1-Front-end-portfolio-project/
