@@ -1,16 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap');
 
 
-
-*{
-    /* background-image: url(./falling-paper.mp4); */
- /* background-color:  rgb(0, 209, 185); */
- 
-}
 body{
-    /* border: 10px solid blue; */
-    /* background-color: rgb(39, 104, 234); */
-    background-image: url(./istockphoto-463229533-612x612.jpeg);
+    background-image: url(./paperfalling.jpeg);
     background-repeat: no-repeat;
     background-size: cover;
 }
@@ -32,8 +24,21 @@ button{
     height: 70px;
     cursor: pointer;
 }
-#err{
-    display: none;
+.button{
+    display: block;
+    background-color: yellowgreen;
+    width: 80%;
+    height: 70px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #000;
+}
+h2{
+    text-align: center;
+    text-size-adjust: larger;
+}
+#score{
+text-align: center;
 }
 
 @media (max-width: 550px) {

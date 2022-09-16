@@ -5,7 +5,6 @@ const main = document.querySelector("main");
 const p = document.querySelector("#description");
 const getScore = document.querySelector("#getScore");
 const err = document.querySelector('#err')
-// console.log(getScore)
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -18,14 +17,12 @@ function quotes() {
   .then((res) => res.json())
   .then((res) => {
     const data = res.data;
-    // console.log(data);
     
     let indexNumArr = [];
     let answerKey = [];
     
     while (indexNumArr.length < 10) {
       let randomNum = Math.floor(Math.random() * data.length);
-      
       if (!indexNumArr.includes(randomNum)) {
         indexNumArr.push(randomNum);
         answerKey.push(
@@ -56,15 +53,11 @@ function quotes() {
          console.log(answer)
           if (answer.value === '') {
             alert('You missed a question')
-            err.style.display = 'block'
            return getScore.disable = true
           }
         }
         score()
       });
-       
-        
-        
         function score() {
           let correct = 0;
           answerKey.forEach((userAnswer, i) => {
@@ -74,13 +67,23 @@ function quotes() {
           })
             const score = Math.floor((correct / 10) * 100);
             const scores = document.createElement("p");
+            const showScores = document.createElement("h2");
+            const meetCast = document.createElement("button");
+            const tryAgain = document.createElement("button");
             scores.setAttribute("id", "score");
+            showScores.innerText ='Your Score!'
             scores.innerText = `${score}%`;
-            p.append(scores);
+            meetCast.innerText = 'Meet Cast'
+            tryAgain.innerText = 'Try Again'
+            p.append(showScores, scores,meetCast,tryAgain);
             form.remove();
+            tryAgain.addEventListener('click', () => {
+              window.location.reload()
+            })
+            meetCast.addEventListener('click', ()=> {
+              location.href = './cast.html'
+            })
       }
-
-      // form.reset();
     })
     .catch((err) => {
       console.log(err);
